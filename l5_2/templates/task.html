@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дом.задание 5.2</title>
+</head>
+<body>
+<p><a href="?/task/add/">Добавить задачу</a></p>
+<table border="1">
+    <tr>
+        <th>Статус</th>
+        <th>Дата добавления</th>
+        <th>Описание</th>
+        <th>Исполнитель</th>
+        <th></th>
+        <th></th>
+    </tr>
+</table>
+{% for task in tasks %}
+ <pre>{{ dump(task) }}</pre>
+    {% endfor %}
+{# <pre>{{ dump(task) }}</pre> #}
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Дом.задание 5.2{% endblock %}
+{% block content %}
+<p><a href="?/task/add">Добавить задачу</a></p>
+<b>Созданные вами задачи </b>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Статус</th>
+        <th>Дата добавления</th>
+        <th>Описание</th>
+        <th>Исполнитель</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{task.is_done|my}}</td>
+        <td>{{task.date_added}}</td>
+        <td>{{task.description}}</td>
+        <td>{{task.ass_user}}</td>
+        <td><a href="?/task/delete/id/{{task.id}}/">Удалить</a></td>
+        <td><a href="?/task/update/id/{{task.id}}/">Изменить</a></td>
+        <td><a href="?/task/assign/id/{{task.id}}/description/{{task.description}}/">Назначить</a></td>
+        <td><a href="?/task/close/id/{{task.id}}/">Закрыть</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<b>Назначенные вам задачи </b>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Отметка выполнения</th>
+        <th>Дата добавления</th>
+        <th>Описание</th>
+        <th>Автор</th>
+    </tr>
+    {% for task2 in tasks2 %}
+    <tr>
+        <td>{{task2.is_done|my}}</td>
+        <td>{{task2.date_added}}</td>
+        <td>{{task2.description}}</td>
+        <td>{{task2.auth}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<p><a href="index.php">Выход</a></p>
+{% endblock %}
